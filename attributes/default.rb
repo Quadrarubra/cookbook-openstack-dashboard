@@ -206,6 +206,10 @@ default['openstack']['dashboard']['password_autocomplete'] = 'off'
 default['openstack']['dashboard']['simple_ip_management'] = false
 default['openstack']['dashboard']['neutron']['enable_quotas'] = true
 
+default['openstack']['dashboard']['password_retrieve'] = false
+default['openstack']['dashboard']['can_set_mount_point'] = true
+default['openstack']['dashboard']['can_set_password'] = false
+
 # Allow for misc sections to be added to the local_settings template
 # For example: {
 #                'CUSTOM_CONFIG_A' => {
