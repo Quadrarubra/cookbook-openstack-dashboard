@@ -206,10 +206,7 @@ default['openstack']['dashboard']['log_level']['django'] = 'INFO'
 
 default['openstack']['dashboard']['password_autocomplete'] = 'off'
 default['openstack']['dashboard']['simple_ip_management'] = false
-default['openstack']['dashboard']['neutron']['enable_lb'] = false
 default['openstack']['dashboard']['neutron']['enable_quotas'] = true
-default['openstack']['dashboard']['neutron']['enable_firewall'] = false
-default['openstack']['dashboard']['neutron']['enable_vpn'] = false
 
 default['openstack']['dashboard']['password_retrieve'] = false
 default['openstack']['dashboard']['can_set_mount_point'] = true
