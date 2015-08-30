@@ -45,14 +45,15 @@ http_bind = endpoint 'dashboard-http-bind'
 https_bind = endpoint 'dashboard-https-bind'
 
 # This allow the apache2/templates/default/ports.conf.erb to setup the correct listeners.
-listen_addresses = [http_bind.host]
+listen_addresses = node['apache']['listen_addresses'] - ['*'] + [http_bind.host]
 listen_addresses += [https_bind.host] if node['openstack']['dashboard']['use_ssl']
-listen_ports = [http_bind.port]
+listen_ports = node['apache']['listen_ports'] - ['80'] + [http_bind.port]
 listen_ports += [https_bind.port] if node['openstack']['dashboard']['use_ssl']
-node.set['apache']['listen_addresses'] = listen_addresses
-node.set['apache']['listen_ports'] = listen_ports
+node.set['apache']['listen_addresses'] = listen_addresses.uniq
+node.set['apache']['listen_ports'] = listen_ports.uniq
 
 include_recipe 'apache2'
+include_recipe 'apache2::mod_headers'
 include_recipe 'apache2::mod_wsgi'
 include_recipe 'apache2::mod_rewrite'
 include_recipe 'apache2::mod_ssl' if node['openstack']['dashboard']['use_ssl']
