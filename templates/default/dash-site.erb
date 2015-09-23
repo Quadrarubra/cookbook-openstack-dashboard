@@ -67,8 +67,8 @@ NameVirtualHost <%= @https_bind_address %>:<%= @https_bind_port %>
   SSLEngine on
   SSLCertificateFile <%= @ssl_cert_file %>
   SSLCertificateKeyFile <%= @ssl_key_file %>
-    <% if node["openstack"]["dashboard"]["ssl_cacert"] -%>
-  SSLCACertificateFile <%= node["openstack"]["dashboard"]["ssl_cacert"] %>
+    <% if node["openstack"]["dashboard"]["ssl_https_cacert"] -%>
+  SSLCACertificateFile <%= node["openstack"]["dashboard"]["ssl_https_cacert"] %>
     <% end -%>
   SSLProtocol <%= node["openstack"]["dashboard"]["ssl"]["protocol"] %>
     <% if node["openstack"]["dashboard"]["ssl"]["ciphers"] -%>
