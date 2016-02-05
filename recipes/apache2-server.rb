@@ -109,12 +109,12 @@ if node['openstack']['dashboard']['use_ssl']
   key_file = "#{node['openstack']['dashboard']['ssl']['dir']}/private/#{node['openstack']['dashboard']['ssl']['key']}"
   key_mode = 00640
   key_owner = 'root'
-  case node['platform_family']
-  when 'debian'
-    key_group = 'ssl-cert'
-  else
-    key_group = 'root'
-  end
+  key_group = case node['platform_family']
+              when 'debian'
+                'ssl-cert'
+              else
+                'root'
+              end
 
   if node['openstack']['dashboard']['ssl']['key_url']
     remote_file key_file do

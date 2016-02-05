@@ -153,6 +153,7 @@ default['openstack']['dashboard']['stylesheet_path'] = '/usr/share/openstack-das
 default['openstack']['dashboard']['wsgi_path'] = node['openstack']['dashboard']['dash_path'] + '/wsgi/django.wsgi'
 default['openstack']['dashboard']['wsgi_socket_prefix'] = nil
 default['openstack']['dashboard']['session_backend'] = 'memcached'
+default['openstack']['dashboard']['session_timeout'] = 3600
 
 default['openstack']['dashboard']['ssl_offload'] = false
 default['openstack']['dashboard']['plugins'] = nil
@@ -172,7 +173,7 @@ default['openstack']['dashboard']['api']['auth']['version'] = node['openstack'][
 
 case node['openstack']['dashboard']['api']['auth']['version']
 when 'v2.0'
-  default['openstack']['dashboard']['identity_api_version'] =  2.0
+  default['openstack']['dashboard']['identity_api_version'] = 2.0
 when 'v3.0'
   default['openstack']['dashboard']['identity_api_version'] = 3
 end

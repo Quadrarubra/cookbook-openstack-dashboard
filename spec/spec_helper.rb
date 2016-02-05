@@ -9,17 +9,17 @@ REDHAT_OPTS = {
   platform: 'redhat',
   version: '7.1',
   log_level: LOG_LEVEL
-}
+}.freeze
 UBUNTU_OPTS = {
   platform: 'ubuntu',
   version: '14.04',
   log_level: LOG_LEVEL
-}
+}.freeze
 SUSE_OPTS = {
   platform: 'suse',
   version: '11.3',
   log_level: LOG_LEVEL
-}
+}.freeze
 
 # Build a regex for a section of lines
 def build_section(lines)
