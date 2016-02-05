@@ -28,6 +28,13 @@ LOGIN_REDIRECT_URL = '<%= node['openstack']['dashboard']['login_redirect_url'] %
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = <%= node['openstack']['dashboard']['allowed_hosts'] %>
 
+<% if node["openstack"]["dashboard"]["session_timeout"] %>
+# SESSION_TIMEOUT is a method to supersede the token timeout with a shorter
+# horizon session timeout (in seconds).  So if your token expires in 60
+# minutes, a value of 1800 will log users out after 30 minutes
+SESSION_TIMEOUT = <%= node['openstack']['dashboard']['session_timeout'] %>
+<% end %>
+
 <% if node["openstack"]["dashboard"]["ssl_offload"] %>
 # Set SSL proxy settings:
 # For Django 1.4+ pass this header from the proxy after terminating the SSL,
