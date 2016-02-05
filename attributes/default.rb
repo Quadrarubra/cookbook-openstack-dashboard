@@ -155,6 +155,7 @@ default['openstack']['dashboard']['stylesheet_path'] = '/usr/share/openstack-das
 default['openstack']['dashboard']['wsgi_path'] = node['openstack']['dashboard']['dash_path'] + '/wsgi/django.wsgi'
 default['openstack']['dashboard']['wsgi_socket_prefix'] = nil
 default['openstack']['dashboard']['session_backend'] = 'memcached'
+default['openstack']['dashboard']['session_timeout'] = 3600
 
 default['openstack']['dashboard']['ssl_offload'] = false
 default['openstack']['dashboard']['plugins'] = nil
